@@ -5,6 +5,7 @@ package com.platzi.ereservation.resources;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -38,6 +39,7 @@ public class ClientResource {
 	@PostMapping
 	public ResponseEntity<Client> createClient(@RequestBody ClientVo clientVo) {
 		Client client = new Client();
+		client.setIdentification(clientVo.getIdentification());
 		client.setName(clientVo.getName());
 		client.setSurName(clientVo.getSurName());
 		client.setDirection(clientVo.getDirection());
@@ -61,6 +63,14 @@ public class ClientResource {
 			client.setEmail(client.getEmail());
 		}
 		return new ResponseEntity<>(this.clientService.update(client), HttpStatus.OK);
+	}
+
+	@DeleteMapping("/{identification}")
+	public void removeClient(@PathVariable("identification") String identification) {
+		Client client = this.clientService.finByIdentification(identification);
+		if (client != null) {
+			this.clientService.delete(client);
+		}
 	}
 
 }
