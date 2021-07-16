@@ -1,4 +1,4 @@
-package com.platzi.ereservation.resources.vo;
+package com.platzi.ereservation.sightresources.vo;
 
 import java.util.Set;
 

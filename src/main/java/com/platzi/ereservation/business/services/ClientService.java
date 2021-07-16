@@ -1,12 +1,12 @@
-package com.platzi.ereservation.services;
+package com.platzi.ereservation.business.services;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.platzi.ereservation.bussines.repository.clientRepository;
 import com.platzi.ereservation.model.Client;
-import com.platzi.ereservation.repository.clientRepository;
 
 /**
  * Class to define client services.

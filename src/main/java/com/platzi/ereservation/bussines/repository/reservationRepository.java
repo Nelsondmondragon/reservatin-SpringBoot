@@ -1,4 +1,4 @@
-package com.platzi.ereservation.repository;
+package com.platzi.ereservation.bussines.repository;
 
 import java.util.Date;
 import java.util.List;
